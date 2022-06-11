@@ -7,10 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -29,4 +29,13 @@ public class Produto {
 	
 	@Column
 	private LocalDate dataValidade;
+	
+	@ManyToOne
+	@JoinColumn(nullable=true, name="categoria_id")
+	private Categoria categoria;
+	
+	private void newCategoria(Categoria categoria) {
+		categoria.addNewProduto(this);
+		this.categoria = categoria;
+	}
 }
