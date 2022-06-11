@@ -21,15 +21,14 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue
-	private Byte id;
+	private Short id;
 	
 	@Column(nullable = false, length = 50, unique=true)
 	private String nome;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "categoria")
 	private List<Produto> produtos = new ArrayList<>();
 
-	
 	public void addNewProduto(Produto produto) {
 		produtos.add(produto);
 	}

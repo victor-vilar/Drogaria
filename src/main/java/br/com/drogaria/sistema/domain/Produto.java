@@ -34,6 +34,7 @@ public class Produto {
 	@JoinColumn(nullable=true, name="categoria_id")
 	private Categoria categoria;
 	
+	
 	private void newCategoria(Categoria categoria) {
 		categoria.addNewProduto(this);
 		this.categoria = categoria;
