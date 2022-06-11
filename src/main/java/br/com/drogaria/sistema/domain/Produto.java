@@ -1,5 +1,6 @@
 package br.com.drogaria.sistema.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -14,7 +15,12 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Produto {
+public class Produto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private @Id @GeneratedValue  Short id;
 	
