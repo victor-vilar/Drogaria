@@ -17,9 +17,16 @@ import lombok.NoArgsConstructor;
 public class Produto {
 
 	private @Id @GeneratedValue  Short id;
-	@Column(nullable = false)
+	
+	@Column(nullable = false, length=50)
 	private String nome;
+	
+	@Column(nullable=false)
 	private Short quantidade;
+	
+	@Column(nullable=false, precision = 6, scale= 2)
 	private BigDecimal valor;
+	
+	@Column
 	private LocalDate dataValidade;
 }
